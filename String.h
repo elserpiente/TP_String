@@ -8,6 +8,7 @@ protected:
 public:
   String();
   String(const String& str); // Copy constructor
-  int length(String s);
   ~String()=default;
+  int length();
+  char* getStr();
 };

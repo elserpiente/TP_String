@@ -10,6 +10,10 @@ int String::length(){
 }
 
 String::String(const String& str){
-  _str = str._str;
+  //_str = str._str;
   _len = str._len;
+}
+
+char* String::getStr(){
+  return _str;
 }
