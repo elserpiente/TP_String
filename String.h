@@ -1,10 +1,9 @@
 #include <iostream>
-#include <vector>
 
 
 class String{
 protected:
-  std::vector<char> _v;
+  char _str[100];
   int _len;
 public:
   String();
