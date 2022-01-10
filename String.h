@@ -8,9 +8,10 @@ protected:
 public:
   String();
   String(const String& str); // Copy constructor
-  int length(String s);
-  ~String()=default;
 
+  int length();
+  ~String()=default;
   char* c_str();
-  int size(String s);
+  void clear();
+  int capacity();
 };
