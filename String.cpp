@@ -37,16 +37,18 @@ int String::capacity(){
   capacity = sizeof(this->_str) + 4; //size in byte, one char is one byte and an int is 4 byte (length)
   return capacity;
 }
+
 int String::max_size(){
   int max_size;
   max_size = 100;
   return max_size;
+}
 
 int String::size(){
   return _len; // one char equals to one byte
 }
 
 void String::clear(){
-  this->_str[0] = "\0";
+  this->_str[0] = '\0';
   this->_len = 0;
 }

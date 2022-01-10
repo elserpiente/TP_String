@@ -15,9 +15,10 @@ public:
   char* c_str();
 //Measurements
   int length();
-  //int size();
+  int size();
   int capacity();
   int max_size();
 //Modifications
   void clear();
+//Operators
 };
