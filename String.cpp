@@ -8,3 +8,8 @@ String::String(){
 int String::length(){
   return _len;
 }
+
+String::String(const String& str){
+  _str = str._str;
+  _len = str._len;
+}

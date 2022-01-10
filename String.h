@@ -7,6 +7,7 @@ protected:
   int _len;
 public:
   String();
+  String(const String& str); // Copy constructor
   int length(String s);
   ~String()=default;
 };
