@@ -7,7 +7,7 @@ protected:
   int _len;
 public:
   String();
-  String(const String& str); // Copy constructor
+  String(const String* str); // Copy constructor
   ~String()=default;
   int length();
   char* getStr();

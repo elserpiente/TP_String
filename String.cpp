@@ -9,9 +9,12 @@ int String::length(){
   return _len;
 }
 
-String::String(const String& str){
-  //_str = str._str;
-  _len = str._len;
+String::String(const String* str){
+  for(int i=0;i<this->_len;i++){
+    _str[i]=str->_str[i];
+    i++;
+  }
+  _len = str->_len;
 }
 
 char* String::getStr(){
