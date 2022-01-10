@@ -7,4 +7,6 @@ protected:
   int _len;
 public:
   String();
+
+  int length(String s);
 };
