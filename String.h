@@ -7,4 +7,5 @@ protected:
   int _len;
 public:
   String();
+  ~String()=default;
 };
