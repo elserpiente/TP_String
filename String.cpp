@@ -5,14 +5,17 @@ String::String(){
   _len=0;
 }
 
-int String::length(String s){
-  return _len
+int String::length(){
+  return _len;
 }
 
 String::String(const String& str){
-  _str = str._str;
+  //_str = str._str;
   _len = str._len;
 }
+
+char* String::getStr(){
+  return _str;
 
 int String::capacity(){
   int capacity;
