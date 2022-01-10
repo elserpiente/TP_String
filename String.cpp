@@ -9,19 +9,37 @@ int String::length(){
   return _len;
 }
 
-String::String(const String* str){
-  for(int i=0;i<this->_len;i++){
-    _str[i]=str->_str[i];
+String::String(const char *str){
+  int i=0;
+  while(str[i]!='\0'){
+    _str[i]=str[i];
     i++;
   }
+  _str[i]='\0';
+  _len = i;
+}
+
+String::String(const String* str){
+  int i;
+  for(i=0;i<this->_len;i++){
+    _str[i]=str->_str[i];
+  }
+  _str[i]='\0';
   _len = str->_len;
 }
 
-char* String::getStr(){
+char* String::c_str(){
   return _str;
+}
 
 int String::capacity(){
   int capacity;
-  capacity = sizeof(this._str) + 4; //size in byte, one char is one byte and an int is 4 byte (length)
+  capacity = sizeof(this->_str) + 4; //size in byte, one char is one byte and an int is 4 byte (length)
   return capacity;
+}
+
+int String::max_size(){
+  int max_size;
+  max_size = 100;
+  return max_size;
 }
