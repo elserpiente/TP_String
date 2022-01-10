@@ -1,5 +1,6 @@
 #include "String.h"
 
 String::String(){
-  int a=2;
+  _str[0]='\0';
+  _len=11;
 }

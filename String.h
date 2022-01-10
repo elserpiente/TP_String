@@ -3,7 +3,7 @@
 
 class String{
 protected:
-  char _str[100];
+  char _str[100] ={};
   int _len;
 public:
   String();
