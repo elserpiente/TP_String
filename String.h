@@ -19,4 +19,5 @@ public:
   int capacity();
   int max_size();
 //Modifications
+  void clear();
 };
