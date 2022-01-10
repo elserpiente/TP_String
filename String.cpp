@@ -5,6 +5,6 @@ String::String(){
   _len=0;
 }
 
-int String::length(String s){
-  return _len
+int String::length(){
+  return _len;
 }
