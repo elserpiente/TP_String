@@ -6,8 +6,8 @@ protected:
   char _str[100] ={};
   int _len;
 public:
-  // Constructors / Destructor
-  String(); // Default constructor
+  String();
   String(const String& str); // Copy constructor
-
+  int length(String s);
+  ~String()=default;
 };

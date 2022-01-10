@@ -2,7 +2,11 @@
 
 String::String(){
   _str[0]='\0';
-  _len=11;
+  _len=0;
+}
+
+int String::length(String s){
+  return _len
 }
 
 String::String(const String& str){
