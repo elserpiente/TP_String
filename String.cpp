@@ -14,6 +14,10 @@ String::String(const String& str){
   _len = str._len;
 }
 
-char* String::getStr(){
+char* String::c_str(){
   return _str;
+}
+
+int String::size(){
+  return _len; // one char equals to one byte
 }

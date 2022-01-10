@@ -3,7 +3,7 @@
 int main() {
 
   String s;
-  std::cout<<s.getStr()<<std::endl;
+  std::cout<<s.c_str()<<std::endl;
   std::cout<<"Hello world"<<std::endl;
 
   char arr[100] = {};
