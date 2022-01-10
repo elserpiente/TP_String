@@ -7,5 +7,6 @@ protected:
   int _len;
 public:
   String();
-  int length();
+  int length(String s);
+  ~String()=default;
 };
