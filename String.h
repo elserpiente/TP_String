@@ -36,4 +36,25 @@ String& operator=(const String& other){
   _len = other._len;
   return *this;
 }
+
+String& operator=(char other){
+  return *this;
+}
+
+String& operator=(const char* other){
+  return *this;
+}
+
+String& operator+(const String& me,const char* other){
+  return *this;
+}
+
+String& operator+(const String& me,char other){
+  return *this;
+}
+
+String& operator+(const String& me, const String& other){
+  return *this;
+}
+
 };
