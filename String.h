@@ -21,4 +21,19 @@ public:
 //Modifications
   void clear();
 //Operators
+String& operator=(const String& other){
+  int l;
+  if (this->_len>other._len){
+    l=this->_len;
+  }else{
+    l=other._len;
+  }
+  int i;
+  for(i=0;i<l;i++){
+    _str[i]=other._str[i];
+  }
+  _str[i]='\0';
+  _len = other._len;
+  return *this;
+}
 };

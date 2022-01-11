@@ -17,7 +17,11 @@ int main() {
   std::cout<<"\t Length : "<<s.length()<<std::endl;
   std::cout<<"String (s2) : "<<s2.c_str()<<std::endl;
   std::cout<<"\t Length (s2) : "<<s2.length()<<std::endl;
-
+  std::cout<<"s1=s2 ... "<<std::endl;
+  s=s2;
+  std::cout<<"String : "<<s.c_str()<<std::endl;
+  std::cout<<"\t Length : "<<s.length()<<std::endl;
+  std::cout<<"s1=s2 ... "<<std::endl;
 
   return 0;
 }
