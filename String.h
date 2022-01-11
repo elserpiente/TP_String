@@ -38,22 +38,27 @@ String& operator=(const String& other){
 }
 
 String& operator=(char other){
+  //Emma
   return *this;
 }
 
 String& operator=(const char* other){
+  //Edgar
   return *this;
 }
 
 String& operator+(const String& me,const char* other){
+  //Emma
   return *this;
 }
 
 String& operator+(const String& me,char other){
+  //Moi
   return *this;
 }
 
 String& operator+(const String& me, const String& other){
+  //Edgar
   return *this;
 }
 
