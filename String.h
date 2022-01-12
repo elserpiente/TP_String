@@ -20,6 +20,7 @@ public:
   int max_size();
 //Modifications
   void clear();
+  void resize(int size_t,char c);
 //Operators
 String& operator=(const String& other){
   int l;
@@ -47,17 +48,21 @@ String& operator=(const char* other){
   return *this;
 }
 
-String& operator+(const String& me,const char* other){
+String& operator+(const char* other){
   //Emma
   return *this;
 }
 
-String& operator+(const String& me,char other){
-  //Moi
-  return *this;
+String& operator+(char other){
+  if (other=='\0'){
+    return *this;
+  }
+  String s(this);
+  s.resize(1,other);
+  return s;
 }
 
-String& operator+(const String& me, const String& other){
+String& operator+(const String& other){
   //Edgar
   return *this;
 }

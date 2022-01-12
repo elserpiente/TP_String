@@ -48,6 +48,15 @@ int String::size(){
   return _len; // one char equals to one byte
 }
 
+void String::resize(int size_t,char c){
+  int i=this->_len;
+  for(i;i<this->_len+size_t;i++){
+    _str[i]=c;
+  }
+  _str[i]='\0';
+  _len = this->_len+size_t;
+}
+
 void String::clear(){
   this->_str[0] = '\0';
   this->_len = 0;
