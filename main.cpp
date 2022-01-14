@@ -2,6 +2,22 @@
 
 int main() {
 
+  String s1("banane");
+  String s2("bananenan_bananenan_bananenan_bananenan_bananenan_bananenan_bananenan_bananenan_bananenan_bananenan_bananenan_");
+  String s3(s1);
+  String s4(s2);
+
+  std::cout<<"String (s1): "<<s1.c_str()<<std::endl;
+  std::cout<<"\t Length (s1): "<<s1.length()<<std::endl;
+  std::cout<<"String (s2): "<<s2.c_str()<<std::endl;
+  std::cout<<"\t Length (s2): "<<s2.length()<<std::endl;
+  std::cout<<"String (s3): "<<s3.c_str()<<std::endl;
+  std::cout<<"\t Length (s3): "<<s3.length()<<std::endl;
+  std::cout<<"String (s4): "<<s4.c_str()<<std::endl;
+  std::cout<<"\t Length (s4): "<<s4.length()<<std::endl;
+
+
+/*
   //First declaration of a simple String.
   //We'll  call it s1 and use it during all the tests.
   String s1("banane");
@@ -157,6 +173,6 @@ int main() {
   //there's nothing to do after this line.
 
 
-
+*/
   return 0;
 }

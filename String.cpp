@@ -6,6 +6,7 @@ String::String(){
 }
 
 String::String(const char *str){
+  std::cout<<"char"<<std::endl;
   //We want to construct our String
   //We start by setting the values
   //in our _str variable with a loop
@@ -14,24 +15,32 @@ String::String(const char *str){
     this->_str[i]=str[i];
     i++;
   }
-  this->_str[i]='\0';
-  this->_len = i;
-}
-
-String::String(const String* str){
-  int i;
-  for(i=0;i<this->_len;i++){
-    this->_str[i]=str->_str[i];
+  //We get out off the loop if we end
+  //our char table or if we pass the
+  //max size of our String.
+  if (i==100){
+    this->_str[i-1]='\0';
+    this->_len = i-1;
   }
-  this->_str[i]='\0';
-  this->_len = str->_len;
+  //If we pass the max size of our String
+  //we have too be sure it ends by a null
+  //character because the one of the char
+  //table hasn't been put in our String
+  else{
+    this->_len = i;
+  }
+  //Finally we give the number of
+  //characters we put to our _len variable
+
 }
 
 int String::length(){
+  //We return our length
   return _len;
 }
 
 char* String::c_str(){
+  //We return our char table
   return _str;
 }
 
@@ -42,6 +51,8 @@ int String::capacity(){
 }
 
 int String::max_size(){
+  //Retuns the theorical maximum number
+  //of characters our String can contain
   int max_size;
   max_size = 100;
   return max_size;
