@@ -5,27 +5,30 @@ String::String(){
   _len=0;
 }
 
-int String::length(){
-  return _len;
-}
-
 String::String(const char *str){
+  //We want to construct our String
+  //We start by setting the values
+  //in our _str variable with a loop
   int i=0;
-  while(str[i]!='\0'){
-    _str[i]=str[i];
+  while(str[i]!='\0' && i<100){
+    this->_str[i]=str[i];
     i++;
   }
-  _str[i]='\0';
-  _len = i;
+  this->_str[i]='\0';
+  this->_len = i;
 }
 
 String::String(const String* str){
   int i;
   for(i=0;i<this->_len;i++){
-    _str[i]=str->_str[i];
+    this->_str[i]=str->_str[i];
   }
-  _str[i]='\0';
-  _len = str->_len;
+  this->_str[i]='\0';
+  this->_len = str->_len;
+}
+
+int String::length(){
+  return _len;
 }
 
 char* String::c_str(){

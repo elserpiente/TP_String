@@ -5,6 +5,9 @@ int main() {
   //First declaration of a simple String.
   //We'll  call it s1 and use it during all the tests.
   String s1("banane");
+  String stest(s1);
+  std::cout<<"String (stest): "<<stest.c_str()<<std::endl;
+  std::cout<<"\t Length (stest): "<<stest.length()<<std::endl;
 
   //Let's check if our String has been successfully created !
   //To print it we use the function c_str() which
