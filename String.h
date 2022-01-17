@@ -66,5 +66,4 @@ String& operator+(const String& other){
   //Edgar
   return *this;
 }
-
 };

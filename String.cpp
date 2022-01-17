@@ -6,7 +6,6 @@ String::String(){
 }
 
 String::String(const char *str){
-  std::cout<<"char"<<std::endl;
   //We want to construct our String
   //We start by setting the values
   //in our _str variable with a loop
@@ -34,6 +33,16 @@ String::String(const char *str){
 
 }
 
+String::String(const String* str){
+  int i=0;
+  while(i<100){
+    this->_str[i]=str->_str[i];
+    i++;
+  }
+  this->_str[i]=str->_str[i];
+  this->_len=str->_len;
+}
+
 int String::length(){
   //We return our length
   return _len;
@@ -41,7 +50,11 @@ int String::length(){
 
 char* String::c_str(){
   //We return our char table
-  return _str;
+  char c_string[this->_len];
+  for (int i=0;i<this->_len;i++){
+    c_string[i]=this->_str[i];
+  }
+  return c_string;
 }
 
 int String::capacity(){
