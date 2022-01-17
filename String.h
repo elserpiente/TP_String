@@ -3,7 +3,7 @@
 
 class String{
 protected:
-  char _str[100] ={};
+  char _str[100];
   int _len;
 public:
 //Constructors~Destructors
@@ -53,7 +53,7 @@ String& operator+(const char* other){
   return *this;
 }
 
-String& operator+(char other){
+const String operator+(char other){
   if (other=='\0'){
     return *this;
   }
