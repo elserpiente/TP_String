@@ -44,22 +44,18 @@ String::String(const char *str){
   //Finally we give the number of
   //characters we put to our _len variable
 }
-/*
+
 String::String(const String* str){
-  int i=0;
-  while(i<100){
-    this->_str[i]=str->_str[i];
-    i++;
-  }
-  this->_str[i]=str->_str[i];
+  int nbchar=str->_len;
+  this->_str=new char[nbchar]();
+  this->_str=str->_str;
   this->_len=str->_len;
 }
 
 int String::length(){
   //We return our length
-  return _len;
+  return this->_len;
 }
-*/
 
 char* String::c_str(){
   //We return our char table

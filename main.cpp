@@ -5,6 +5,7 @@ int main() {
   //First declaration of a simple String.
   //We'll  call it s1 and use it during all the tests.
   String s1("a");
+  String s2(s1);
 
   //Let's check if our String has been successfully created !
   //To print it we use the function c_str() which
@@ -13,6 +14,7 @@ int main() {
   //c_str() function as well.
   //It should print "banane".
   std::cout<<"String : "<<s1.c_str()<<std::endl;
+  std::cout<<"String (s2): "<<s2.c_str()<<std::endl;
   /*
   //Now we know our String has been created and
   //its text is "banane" but is its length correct ?
