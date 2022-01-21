@@ -6,9 +6,7 @@ String::String(){
 }
 
 String::~String(){
-  for(int i=0;i<=this->_len;i++){
-    delete(this->_str);
-  }
+  delete(this->_str);
 }
 
 String::String(const char *str){
@@ -61,7 +59,7 @@ char* String::c_str(){
   //We return our char table
   return this->_str;
 }
-/*
+
 int String::capacity(){
   int capacity;
   capacity = sizeof(this->_str) + 4; //size in byte, one char is one byte and an int is 4 byte (length)
@@ -71,26 +69,37 @@ int String::capacity(){
 int String::max_size(){
   //Retuns the theorical maximum number
   //of characters our String can contain
-  int max_size;
-  max_size = 100;
-  return max_size;
+  return 100;
 }
 
 int String::size(){
   return _len; // one char equals to one byte
 }
 
+
 void String::resize(int size_t,char c){
-  int i=this->_len;
-  for(i;i<this->_len+size_t;i++){
-    _str[i]=c;
+  if (size_t<=this->_len){
+    this->_str[size_t] = '\0';
+    this->_len = size_t;
+  }else{
+    char* save=this->c_str();
+    delete(this->_str);
+    this->_str=new char[this->_len+size_t]();
+    int i=0;
+    while(save[i]!='\0' && i<100){
+      this->_str[i]=save[i];
+      i++;
+    }
+    while(i<this->_len+size_t){
+      this->_str[i]=c;
+      i++;
+    }
+    this->_str[i]='\0';
+    this->_len=this->_len+size_t+1;
   }
-  _str[i]='\0';
-  _len = this->_len+size_t;
 }
 
 void String::clear(){
   this->_str[0] = '\0';
   this->_len = 0;
 }
-*/

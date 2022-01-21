@@ -4,8 +4,7 @@ int main() {
 
   //First declaration of a simple String.
   //We'll  call it s1 and use it during all the tests.
-  String s1("a");
-  String s2(s1);
+  String s1("banane");
 
   //Let's check if our String has been successfully created !
   //To print it we use the function c_str() which
@@ -14,14 +13,14 @@ int main() {
   //c_str() function as well.
   //It should print "banane".
   std::cout<<"String : "<<s1.c_str()<<std::endl;
-  std::cout<<"String (s2): "<<s2.c_str()<<std::endl;
-  /*
+
   //Now we know our String has been created and
   //its text is "banane" but is its length correct ?
   //The answer is given by the function length() which
   //returns obviously the length of our String.
   //As the text is "banane" it should print 6.
   std::cout<<"\t Length : "<<s1.length()<<std::endl;
+
   //Well it works !
   //Another function called size() do the same thing.
   //So again it should print 6, let's see.
@@ -48,6 +47,7 @@ int main() {
   //It should print "banane" and 6.
   std::cout<<"String (s2) : "<<s2.c_str()<<std::endl;
   std::cout<<"\t Length (s2) : "<<s2.length()<<std::endl;
+
   //Well I think she is.
   //Now we have two Strings, so we can empty
   //our first one by using the clear() function.
@@ -65,24 +65,25 @@ int main() {
   //It works ! but it's a little bit sad,
   //let's give our empty String a new content.
   //It could contain a single character.
-  std::cout<<"s1='b' ... "<<std::endl;
+
+  std::cout<<"!s1='b' ... "<<std::endl;
 //s1='b';
   //Now it should be a b (please forgive me).
   //It should print 'b' and 1.
-  std::cout<<"String : "<<s1.c_str()<<std::endl;
-  std::cout<<"\t Length : "<<s1.length()<<std::endl;
+  std::cout<<"!String : "<<s1.c_str()<<std::endl;
+  std::cout<<"\t !Length : "<<s1.length()<<std::endl;
   //Congratulation ! It works !
   //...
   //Wait a minute, it's just a little b, that's
   //not enough !
   //Let's give it the content "ban".
-  std::cout<<"s1=\"ban\" ... "<<std::endl;
+  std::cout<<"!s1=\"ban\" ... "<<std::endl;
 //s1="ban";
   //Well it's a ban, just a simple ban.
   //Let's test it !
   //It should print "ban" and 3.
-  std::cout<<"String : "<<s1.c_str()<<std::endl;
-  std::cout<<"\t Length : "<<s1.length()<<std::endl;
+  std::cout<<"!String : "<<s1.c_str()<<std::endl;
+  std::cout<<"\t !Length : "<<s1.length()<<std::endl;
   //It works... I know it's nothing but
   //look at it, it just look like the half of itself...
   //Hold on ! We always have its sister! Let's give it
@@ -118,19 +119,19 @@ int main() {
   //She has well grown don't you think ?
   //But it seems she hasn't end its growth yet
   //Let's give her a "anane" to grow
-  std::cout<<"s2=s2+\"anane\" ... "<<std::endl;
+  std::cout<<"!s2=s2+\"anane\" ... "<<std::endl;
 //s2=s1+"anane";
   //Now we have s2 final content.
   //It should print "banane___banane" and 15.
-  std::cout<<"String (s2) : "<<s2.c_str()<<std::endl;
-  std::cout<<"\t Length (s2) : "<<s2.length()<<std::endl;
+  std::cout<<"!String (s2) : "<<s2.c_str()<<std::endl;
+  std::cout<<"\t !Length (s2) : "<<s2.length()<<std::endl;
   //What a beautiful String !
   //It looks like s1 has met someone
   //and its name is ... s3 !
   //It should print "pomme" and 5.
   String s3("pomme");
-  std::cout<<"String (s3) : "<<s3.c_str()<<std::endl;
-  std::cout<<"\t Length (s3) : "<<s3.length()<<std::endl;
+  std::cout<<"!String (s3) : "<<s3.c_str()<<std::endl;
+  std::cout<<"\t !Length (s3) : "<<s3.length()<<std::endl;
   //It's a pleasure to meet it.
   //And they're already waiting a child s4 !
   //We should reserve some place for it with
@@ -138,14 +139,14 @@ int main() {
   //in the storage space.
 //s4.reserve(14);
   //It should print 14;
-  std::cout<<"\t Capacity : "<<s1.capacity()<<std::endl;
+  std::cout<<"\t !Capacity : "<<s1.capacity()<<std::endl;
   //Ok, it's about to born.
   String s4;
 //s4=s1+s3;
   //How cute ! Let's see its face.
   //It should print "banane___pomme" and 14.
-  std::cout<<"String (s4) : "<<s4.c_str()<<std::endl;
-  std::cout<<"\t Length (s4) : "<<s4.length()<<std::endl;
+  std::cout<<"!String (s4) : "<<s4.c_str()<<std::endl;
+  std::cout<<"\t !Length (s4) : "<<s4.length()<<std::endl;
   //Well everything has been done and check so
   //I think it's the end of the journey...
   //You can leave now if you want.
@@ -155,7 +156,7 @@ int main() {
   //What are you waiting for ?
   //There's sun outside, here
   //there's nothing to do after this line.
-*/
+
 
   return 0;
 }
