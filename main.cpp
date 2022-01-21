@@ -4,8 +4,8 @@ int main() {
 
   //First declaration of a simple String.
   //We'll  call it s1 and use it during all the tests.
-  String s1("banane");
-  
+  String s1("a");
+
   //Let's check if our String has been successfully created !
   //To print it we use the function c_str() which
   //returns our string in the C string format.
@@ -13,6 +13,7 @@ int main() {
   //c_str() function as well.
   //It should print "banane".
   std::cout<<"String : "<<s1.c_str()<<std::endl;
+  /*
   //Now we know our String has been created and
   //its text is "banane" but is its length correct ?
   //The answer is given by the function length() which
@@ -152,7 +153,7 @@ int main() {
   //What are you waiting for ?
   //There's sun outside, here
   //there's nothing to do after this line.
-
+*/
 
   return 0;
 }

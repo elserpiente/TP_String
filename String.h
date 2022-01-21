@@ -1,16 +1,17 @@
 #include <iostream>
+#include <typeinfo>
 
 
 class String{
 protected:
-  char _str[100];
+  char* _str;
   int _len;
 public:
 //Constructors~Destructors
   String();
   String(const char *str);
   String(const String* str); // Copy constructor
-  ~String()=default;
+  ~String();
 //Convertions
   char* c_str();
 //Measurements

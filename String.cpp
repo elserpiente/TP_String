@@ -5,21 +5,33 @@ String::String(){
   _len=0;
 }
 
+String::~String(){
+  for(int i=0;i<=this->_len;i++){
+    delete(this->_str);
+  }
+}
+
 String::String(const char *str){
-  std::cout<<"char"<<std::endl;
+  int nbchar=0;
+  while(str[nbchar]!='\0'){
+    nbchar++;
+  }
   //We want to construct our String
   //We start by setting the values
   //in our _str variable with a loop
+  this->_str=new char[nbchar+1]();
   int i=0;
   while(str[i]!='\0' && i<100){
     this->_str[i]=str[i];
     i++;
   }
+  this->_str[i]='\0';
+  this->_len=nbchar;
   //We get out off the loop if we end
   //our char table or if we pass the
   //max size of our String.
+  /*this->_str[i]=new char('\0');
   if (i==100){
-    this->_str[i-1]='\0';
     this->_len = i-1;
   }
   //If we pass the max size of our String
@@ -28,12 +40,11 @@ String::String(const char *str){
   //table hasn't been put in our String
   else{
     this->_len = i;
-  }
+  }*/
   //Finally we give the number of
   //characters we put to our _len variable
-
 }
-
+/*
 String::String(const String* str){
   int i=0;
   while(i<100){
@@ -48,12 +59,13 @@ int String::length(){
   //We return our length
   return _len;
 }
+*/
 
 char* String::c_str(){
   //We return our char table
-  return _str;
+  return this->_str;
 }
-
+/*
 int String::capacity(){
   int capacity;
   capacity = sizeof(this->_str) + 4; //size in byte, one char is one byte and an int is 4 byte (length)
@@ -85,3 +97,4 @@ void String::clear(){
   this->_str[0] = '\0';
   this->_len = 0;
 }
+*/
