@@ -43,11 +43,16 @@ String::String(const char *str){
   //characters we put to our _len variable
 }
 
-String::String(const String* str){
-  int nbchar=str->_len;
+String::String(const String& str){
+  int nbchar=str._len;
   this->_str=new char[nbchar]();
-  this->_str=str->_str;
-  this->_len=str->_len;
+  int i=0;
+  while(str._str[i]!='\0'){
+    this->_str[i]=str._str[i];
+    i++;
+  }
+  this->_str[i]='\0';
+  this->_len=str._len;
 }
 
 int String::length(){
@@ -84,18 +89,18 @@ void String::resize(int size_t,char c){
   }else{
     char* save=this->c_str();
     delete(this->_str);
-    this->_str=new char[this->_len+size_t]();
+    this->_str=new char[size_t]();
     int i=0;
     while(save[i]!='\0' && i<100){
       this->_str[i]=save[i];
       i++;
     }
-    while(i<this->_len+size_t){
+    while(i<size_t){
       this->_str[i]=c;
       i++;
     }
     this->_str[i]='\0';
-    this->_len=this->_len+size_t+1;
+    this->_len=size_t;
   }
 }
 
