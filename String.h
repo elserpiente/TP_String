@@ -10,7 +10,7 @@ public:
 //Constructors~Destructors
   String();
   String(const char *str);
-  String(const String* str); // Copy constructor
+  String(const String& str); // Copy constructor
   ~String();
 //Convertions
   char* c_str();
@@ -24,18 +24,14 @@ public:
   void resize(int size_t,char c);
 //Operators
 String& operator=(const String& other){
-  int l;
-  if (this->_len>other._len){
-    l=this->_len;
-  }else{
-    l=other._len;
-  }
+  delete(this->_str);
+  this->_str=new char[other._len]();
   int i;
-  for(i=0;i<l;i++){
-    _str[i]=other._str[i];
+  for(i=0;i<other._len;i++){
+    this->_str[i]=other._str[i];
   }
-  _str[i]='\0';
-  _len = other._len;
+  this->_str[i]='\0';
+  this->_len = other._len;
   return *this;
 }
 
@@ -58,8 +54,9 @@ const String operator+(char other){
   if (other=='\0'){
     return *this;
   }
-  String s(this);
-  s.resize(1,other);
+  String s(*this);
+  std::cout<<this->_len+1<<'\n';
+  s.resize(this->_len+1,other);
   return s;
 }
 
