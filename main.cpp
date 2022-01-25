@@ -5,7 +5,7 @@ int main() {
   //First declaration of a simple String.
   //We'll  call it s1 and use it during all the tests.
   String s1("banane");
-
+  String sexcept("This string doesn't contains \"banane\" but it contain more than 100 characters to reach the point it raises an exception");
   //Let's check if our String has been successfully created !
   //To print it we use the function c_str() which
   //returns our string in the C string format.
@@ -57,6 +57,9 @@ int main() {
   //It should print nothing and 0.
   std::cout<<"String : "<<s1.c_str()<<std::endl;
   std::cout<<"\t Length : "<<s1.length()<<std::endl;
+
+  std::cout<<"String (s2): "<<s2.c_str()<<std::endl;
+  std::cout<<"\t Length (s2): "<<s2.length()<<std::endl;
   //Why do we not take advantage of this to
   //test our empty() function ?
   //This function return 1 if the String is empty, 0 if not
@@ -104,6 +107,8 @@ int main() {
   //It should print "banane___" and 9.
   std::cout<<"String : "<<s1.c_str()<<std::endl;
   std::cout<<"\t Length : "<<s1.length()<<std::endl;
+  std::cout<<"String (s2): "<<s2.c_str()<<std::endl;
+  std::cout<<"\t Length (s2): "<<s2.length()<<std::endl;
   //That's too easy, I should win one billon euros !
   //...
   //It hurts.
@@ -114,6 +119,8 @@ int main() {
   s2=s1+'b';
   //Now we have a new content for s2.
   //It should print "banane___b" and 10.
+  std::cout<<"String : "<<s1.c_str()<<std::endl;
+  std::cout<<"\t Length : "<<s1.length()<<std::endl;
   std::cout<<"String (s2) : "<<s2.c_str()<<std::endl;
   std::cout<<"\t Length (s2) : "<<s2.length()<<std::endl;
   //She has well grown don't you think ?

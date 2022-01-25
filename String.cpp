@@ -14,33 +14,38 @@ String::String(const char *str){
   while(str[nbchar]!='\0'){
     nbchar++;
   }
-  //We want to construct our String
-  //We start by setting the values
-  //in our _str variable with a loop
-  this->_str=new char[nbchar+1]();
-  int i=0;
-  while(str[i]!='\0' && i<100){
-    this->_str[i]=str[i];
-    i++;
+
+  if ( nbchar+1<100 ) {
+    //We want to construct our String
+    //We start by setting the values
+    //in our _str variable with a loop
+    this->_str=new char[nbchar+1]();
+    int i=0;
+    while(str[i]!='\0' && i<100){
+      this->_str[i]=str[i];
+      i++;
+    }
+    this->_str[i]='\0';
+    this->_len=nbchar;
+    //We get out off the loop if we end
+    //our char table or if we pass the
+    //max size of our String.
+    /*this->_str[i]=new char('\0');
+    if (i==100){
+      this->_len = i-1;
+    }
+    //If we pass the max size of our String
+    //we have too be sure it ends by a null
+    //character because the one of the char
+    //table hasn't been put in our String
+    else{
+      this->_len = i;
+    }*/
+    //Finally we give the number of
+    //characters we put to our _len variable
+  }else{
+    throw std::invalid_argument( "max string size allowed is 99 char, please reduce your string's size" );
   }
-  this->_str[i]='\0';
-  this->_len=nbchar;
-  //We get out off the loop if we end
-  //our char table or if we pass the
-  //max size of our String.
-  /*this->_str[i]=new char('\0');
-  if (i==100){
-    this->_len = i-1;
-  }
-  //If we pass the max size of our String
-  //we have too be sure it ends by a null
-  //character because the one of the char
-  //table hasn't been put in our String
-  else{
-    this->_len = i;
-  }*/
-  //Finally we give the number of
-  //characters we put to our _len variable
 }
 
 String::String(const String& str){
