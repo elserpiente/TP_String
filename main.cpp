@@ -5,7 +5,13 @@ int main() {
   //First declaration of a simple String.
   //We'll  call it s1 and use it during all the tests.
   String s1("banane");
-  String sexcept("This string doesn't contains \"banane\" but it contain more than 100 characters to reach the point it raises an exception");
+  //String sexcept("This string doesn't contains \"banane\" but it contain more than 100 characters to reach the point it raises an exception");
+  //String sexcept("This string doesn't contains \"banane\" but it contain more than 100 characters to reach the point it");
+  std::cout<<sexcept.c_str()<<'\n';
+  std::cout<<sexcept.size()<<'\n';
+  sexcept=sexcept+'a';
+  std::cout<<sexcept.c_str()<<'\n';
+  std::cout<<sexcept.size()<<'\n';
   //Let's check if our String has been successfully created !
   //To print it we use the function c_str() which
   //returns our string in the C string format.

@@ -1,8 +1,9 @@
 #include "String.h"
 
 String::String(){
-  _str[0]='\0';
-  _len=0;
+  this->_str[0]='\0';
+  this->_len=0;
+  this->_storage=0;
 }
 
 String::~String(){
@@ -27,22 +28,7 @@ String::String(const char *str){
     }
     this->_str[i]='\0';
     this->_len=nbchar;
-    //We get out off the loop if we end
-    //our char table or if we pass the
-    //max size of our String.
-    /*this->_str[i]=new char('\0');
-    if (i==100){
-      this->_len = i-1;
-    }
-    //If we pass the max size of our String
-    //we have too be sure it ends by a null
-    //character because the one of the char
-    //table hasn't been put in our String
-    else{
-      this->_len = i;
-    }*/
-    //Finally we give the number of
-    //characters we put to our _len variable
+    this->_storage=0;
   }else{
     throw std::invalid_argument( "max string size allowed is 99 char, please reduce your string's size" );
   }
@@ -58,6 +44,7 @@ String::String(const String& str){
   }
   this->_str[i]='\0';
   this->_len=str._len;
+  this->_storage=0;
 }
 
 int String::length(){
@@ -72,8 +59,22 @@ char* String::c_str(){
 
 int String::capacity(){
   int capacity;
-  capacity = sizeof(this->_str) + 4; //size in byte, one char is one byte and an int is 4 byte (length)
-  return capacity;
+  if (this->_len>0){
+    capacity=1;
+    for (int i=0;i<=this->_len;i++){
+      if(i==capacity){
+        capacity=capacity*2;
+      }else{
+        capacity=i;
+      }
+    }
+  }else{
+    capacity=0;
+  }
+  if(capacity>this->_storage){
+    this->_storage=capacity;
+  }
+    return this->_storage;
 }
 
 int String::max_size(){
@@ -92,12 +93,12 @@ void String::resize(int size_t,char c){
     this->_str[size_t] = '\0';
     this->_len = size_t;
   }else{
-    char* save=this->c_str();
+    String save(this->c_str());
     delete(this->_str);
     this->_str=new char[size_t]();
     int i=0;
-    while(save[i]!='\0' && i<100){
-      this->_str[i]=save[i];
+    while(save.c_str()[i]!='\0' && i<100){
+      this->_str[i]=save.c_str()[i];
       i++;
     }
     while(i<size_t){

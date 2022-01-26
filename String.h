@@ -7,6 +7,7 @@ class String{
 protected:
   char* _str;
   int _len;
+  int _storage;
 public:
 //Constructors~Destructors
   String();
