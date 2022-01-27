@@ -114,3 +114,9 @@ void String::clear(){
   this->_str[0] = '\0';
   this->_len = 0;
 }
+
+bool String::empty(){
+  bool ret = false ;
+  if ((this->_len == 0)&&(this->_str[0]=='\0')){ret = true;}
+  return ret; 
+}

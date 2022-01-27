@@ -41,6 +41,12 @@ void testMaxSize(std::string& v_str,String& f_str){
   }
 }
 
+void testEmpty(String& s){
+  bool result = s.empty();
+  if (result){ std::cout<< "this string is empty : true"<<std::endl;}
+  else { std::cout<< "this string is empty : false"<<std::endl;}
+}
+
 int main() {
   std::string true_string("banane_banane");
   String false_string("banane_banane");
@@ -49,6 +55,7 @@ int main() {
   testSize(true_string,false_string);
   testCapacity(true_string,false_string);
   testMaxSize(true_string,false_string);
-
-  return 0;
+  testEmpty(false_string);
+  String emp("");
+  testEmpty(emp);
 }

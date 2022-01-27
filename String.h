@@ -21,6 +21,7 @@ public:
   int size();
   int capacity();
   int max_size();
+  bool empty();
 //Modifications
   void clear();
   void resize(int size_t,char c);
