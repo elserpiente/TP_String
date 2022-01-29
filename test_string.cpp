@@ -95,7 +95,11 @@ void testCharAdd(){
 }
 
 void testTableCharAdd(){
-  int a=1;
+  String s1("Test +char ");
+  char c[6]={'c','o','n','f','o','r','m','e'};
+  String s2;
+  s2=s1+c;
+  std::cout<<s2.c_str()<<'\n';
 }
 
 void testTableCharEg(){
@@ -108,7 +112,12 @@ void testTableCharEg(){
 }
 
 void testCharEg(){
-  int a=1;
+  String s("non");
+  s='T';
+  for(int i = 0; i<s.length(); i++){
+    std::cout<<s.c_str()[i];
+  }
+  std::cout<<"est =char conforme"<<std::endl;
 }
 
 void testResize(){
