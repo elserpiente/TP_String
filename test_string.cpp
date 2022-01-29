@@ -41,6 +41,43 @@ void testMaxSize(std::string& v_str,String& f_str){
   }
 }
 
+void testEmpty(String& s){
+  bool result = s.empty();
+  if (result){ std::cout<< "this string is empty : true"<<std::endl;}
+  else { std::cout<< "this string is empty : false"<<std::endl;}
+}
+
+void testStringEg(){
+  std::cout<<" test operator+(String&) : "<<std::endl;
+  String s("non");
+  String t("oui le test marche");
+  s=t;
+  std::cout<<s.length()<<std::endl;
+  for(int i = 0; i<s.length(); i++){
+    std::cout<<s.c_str()[i];
+  }
+  std::cout<<std::endl;
+}
+
+void testStringAdd(){
+  String s1("test");
+  String s2(" valide");
+  s1+s2;
+  for(int i = 0; i<s1.length(); i++){
+    std::cout<<s1.c_str()[i]<<std::endl;
+  }
+}
+
+void testReserve(String& s){
+  int resize = 30;
+  int size=s.length();
+  s.reserve(30);
+  if((s.capacity() == 30)&&(s.length()==size)){
+    std::cout<<"le test de reserve est conforme.";
+  }
+  else {std::cout<<"le test de reserve n'est pas conforme";}
+}
+
 int main() {
   std::string true_string("banane_banane");
   String false_string("banane_banane");
@@ -49,6 +86,10 @@ int main() {
   testSize(true_string,false_string);
   testCapacity(true_string,false_string);
   testMaxSize(true_string,false_string);
-
-  return 0;
+  testEmpty(false_string);
+  String emp("");
+  testEmpty(emp);
+  testStringEg();
+  testStringAdd();
+  testReserve(false_string);
 }
