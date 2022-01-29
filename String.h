@@ -76,33 +76,31 @@ const String operator+(char other){
     return *this;
   }
   String s(*this);
-  std::cout<<this->_len+1<<'\n';
   s.resize(this->_len+1,other);
   return s;
 }
 
 String& operator+(const String& other){
-  String s(this->c_str());
-  delete(this->_str);
-  int totalLen = s._len + other._len;
+  String s;
+  int totalLen = this->_len + other._len;
   if(totalLen +1 < 100){
-    this->_str=new char[totalLen+1]();
+    s._str=new char[totalLen+1]();
     int i = 0;
     while(i<totalLen){
-      if(i<s._len){
-        this->_str[i]=s._str[i];
+      if(i<this->_len){
+        s._str[i]=this->_str[i];
       }
       else{
-        this->_str[i]=other._str[i-s._len];
+        s._str[i]=other._str[i-this->_len];
       }
       i++;
     }
-    this->_len = totalLen;
-    this->_str[totalLen]='\0';
+    s._len = totalLen;
+    s._str[totalLen]='\0';
+    return *new String(s);
   }
   else {
     throw std::invalid_argument( "max string size allowed is 99 char, please reduce your string's size" );
   }
-  return *this;
 }
 };
