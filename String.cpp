@@ -118,5 +118,20 @@ void String::clear(){
 bool String::empty(){
   bool ret = false ;
   if ((this->_len == 0)&&(this->_str[0]=='\0')){ret = true;}
-  return ret; 
+  return ret;
 }
+
+  void String::reserve (int size){
+    if(size > this->length()){
+      String save(this->c_str());
+      delete(this->_str);
+      this->_str=new char[size]();
+      for(int i = 0; i<save.length()+1;  i++){
+        this->_str[i]=save.c_str()[i];
+      }
+      this->_len = save.length();
+      this->_storage = size;
+    } else {
+      throw std::invalid_argument( "reserved space is lower than string length" );
+    }
+  }
