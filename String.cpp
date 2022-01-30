@@ -1,6 +1,7 @@
 #include "String.h"
 
 String::String(){
+  this->_str=new char[1]();
   this->_str[0]='\0';
   this->_len=0;
   this->_storage=0;
