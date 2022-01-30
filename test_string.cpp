@@ -213,6 +213,24 @@ void testLimit(char* c){
     std::cout<<"Test sum char >100 invalide conforme"<<'\n';
   }
 
+  s3="Hello";
+  int l_capacities[3]={3,i+1};
+  for (j=0;j<2;j++){
+    if(l_capacities[j]<100){
+      try{
+        s3.reserve(l_capacities[j]);
+        std::cout<<"Test reserve() <size invalide non conforme"<<'\n';
+      }catch(std::invalid_argument& e){
+        std::cout<<"Test reserve() <size invalide conforme"<<'\n';      }
+    }else{
+      try{
+        s3.reserve(l_capacities[j]);
+        std::cout<<"Test reserve() size=100 valide conforme"<<'\n';
+      }catch(std::invalid_argument& e){
+        std::cout<<"Test reserve() size>100 invalide conforme"<<'\n';      }
+    }
+
+  }
 
 }
 
