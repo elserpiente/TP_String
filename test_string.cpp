@@ -95,8 +95,8 @@ void testCharAdd(){
 }
 
 void testTableCharAdd(){
-  String s1("Test +char ");
-  char c[6]={'c','o','n','f','o','r','m','e'};
+  String s1("Test +char* ");
+  char c[8]={'c','o','n','f','o','r','m','e'};
   String s2;
   s2=s1+c;
   std::cout<<s2.c_str()<<'\n';
@@ -162,10 +162,10 @@ int main() {
   testEmpty(emp);
   testReserve(false_string);
   //Operators
-  //testCharEg();
+  testCharEg();
   testTableCharEg();
   testStringEg();
   testCharAdd();
-  //testTableCharAdd();
+  testTableCharAdd();
   testStringAdd();
 }
