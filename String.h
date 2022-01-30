@@ -72,7 +72,7 @@ String& operator=(const char* other){
 }
 
 
-String& operator+(const char* other){
+const String& operator+(const char* other){
   int nbchar=0;
   while(other[nbchar]!='\0'){
       nbchar++;
