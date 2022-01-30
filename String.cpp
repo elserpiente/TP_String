@@ -17,7 +17,7 @@ String::String(const char *str){
     nbchar++;
   }
 
-  if ( nbchar+1<100 ) {
+  if ( nbchar+1<=100 ) {
     //We want to construct our String
     //We start by setting the values
     //in our _str variable with a loop
@@ -31,7 +31,7 @@ String::String(const char *str){
     this->_len=nbchar;
     this->_storage=0;
   }else{
-    throw std::invalid_argument( "max string size allowed is 99 char, please reduce your string's size" );
+    throw std::invalid_argument( "max string size allowed is 100 char, please reduce your string's size" );
   }
 }
 
@@ -90,6 +90,9 @@ int String::size(){
 
 
 void String::resize(int size_t,char c){
+  if(size_t>=100){
+    throw std::invalid_argument( "max string size allowed is 100 char, please reduce your string's size" );
+  }
   if (size_t<=this->_len){
     this->_str[size_t] = '\0';
     this->_len = size_t;

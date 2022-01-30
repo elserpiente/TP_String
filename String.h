@@ -55,7 +55,7 @@ String& operator=(const char* other){
   while(other[nbchar]!='\0'){
     nbchar++;
   }
-  if (nbchar+1 <100){
+  if (nbchar+1 <=100){
     this->_str=new char[nbchar+1]();
     int i=0;
     while(other[i]!='\0' && i<100){
@@ -79,7 +79,7 @@ const String& operator+(const char* other){
   }
   String s;
   int totalLen = this->_len + nbchar;
-  if(totalLen +1 < 100){
+  if(totalLen +1 <= 100){
     s._str=new char[totalLen+1]();
     int i = 0;
     while(i<totalLen){
@@ -100,19 +100,19 @@ const String& operator+(const char* other){
   }
 }
 
-const String operator+(char other){
+String& operator+(char other){
   if (other=='\0'){
     return *this;
   }
   String s(*this);
   s.resize(this->_len+1,other);
-  return s;
+  return *new String(s);
 }
 
 String& operator+(const String& other){
   String s;
   int totalLen = this->_len + other._len;
-  if(totalLen +1 < 100){
+  if(totalLen +1 <= 100){
     s._str=new char[totalLen+1]();
     int i = 0;
     while(i<totalLen){

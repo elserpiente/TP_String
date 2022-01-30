@@ -96,7 +96,7 @@ void testCharAdd(){
 
 void testTableCharAdd(){
   String s1("Test +char* ");
-  char c[8]={'c','o','n','f','o','r','m','e'};
+  char c[9]="conforme";
   String s2;
   s2=s1+c;
   std::cout<<s2.c_str()<<'\n';
@@ -145,16 +145,93 @@ void testResize(){
   }
 }
 
+void testLimit(char* c){
+  try{
+    String s(c);
+    std::cout<<"Test construire =100 valide conforme"<<'\n';
+  }catch(std::invalid_argument& e){
+    std::cout<<"Test construire >100 invalide conforme"<<'\n';
+  }
+  int i=0;
+  while(c[i]!='\0'){
+    i++;
+  }
+  String s2("a");
+
+  try{
+    s2.resize(i,'a');
+    std::cout<<"Test resize() =100 valide conforme"<<'\n';
+  }catch(std::invalid_argument& e){
+    std::cout<<"Test resize() >100 invalide conforme"<<'\n';
+  }
+
+  char c1[2];
+  c1[0]=c[0];
+  c1[1]='\0';
+  char c2[i-1];
+  int j;
+  for (j=0;j<i;j++){
+    c2[j]=c[j+1];
+  }
+  c2[j-1]='\0';
+  String s1(c1);
+  s2=c2;
+
+  String s3;
+  try{
+    s3=s1+c2;
+    std::cout<<"Test sum char* =100 valide conforme"<<'\n';
+  }catch(std::invalid_argument& e){
+    std::cout<<"Test sum char* >100 invalide conforme"<<'\n';
+  }
+
+  try{
+    s3=s1+s2;
+    std::cout<<"Test sum String =100 valide conforme"<<'\n';
+  }catch(std::invalid_argument& e){
+    std::cout<<"Test sum String >100 invalide conforme"<<'\n';
+  }
+
+
+  try{
+    s3=c;
+    std::cout<<"Test =char* =100 valide conforme"<<'\n';
+  }catch(std::invalid_argument& e){
+    std::cout<<"Test =char* >100 invalide conforme"<<'\n';
+  }
+
+  char c3[i-1];
+  for (j=0;j<i;j++){
+    c3[j]=c[j];
+  }
+  c3[j-1]='\0';
+  s2=c3;
+  try{
+    s3=s2+c[j+1];
+    std::cout<<"Test sum char =100 valide conforme"<<'\n';
+  }catch(std::invalid_argument& e){
+    std::cout<<"Test sum char >100 invalide conforme"<<'\n';
+  }
+
+
+}
+
 int main() {
   std::string true_string("banane_banane");
   String false_string("banane_banane");
   //Getters
+  std::cout<<"=================================================="<<'\n';
+  std::cout<<"Tests on getters"<<'\n';
+  std::cout<<"=================================================="<<'\n';
   testC_str(true_string,false_string);
   testLength(true_string,false_string);
   testSize(true_string,false_string);
   testCapacity(true_string,false_string);
   testMaxSize(true_string,false_string);
   //Other
+  std::cout<<"=================================================="<<'\n';
+  std::cout<<"Tests on other functions"<<'\n';
+  std::cout<<"=================================================="<<'\n';
   testResize();
   testClear(false_string);
   testEmpty(false_string);
@@ -162,10 +239,23 @@ int main() {
   testEmpty(emp);
   testReserve(false_string);
   //Operators
+  std::cout<<"=================================================="<<'\n';
+  std::cout<<"Tests on operators"<<'\n';
+  std::cout<<"=================================================="<<'\n';
   testCharEg();
   testTableCharEg();
   testStringEg();
   testCharAdd();
   testTableCharAdd();
   testStringAdd();
+  //Limits
+  std::cout<<"=================================================="<<'\n';
+  std::cout<<"Tests on limits"<<'\n';
+  std::cout<<"=================================================="<<'\n';
+  char c[100]="|->10 char|->20 char|->30 char|->40 char|->50 char|->60 char|->70 char|->80 char|->90 char|>99 char";
+  std::cout<<"String size = 100 "<<'\n';
+  testLimit(c);
+  char c2[101]="|->10 char|->20 char|->30 char|->40 char|->50 char|->60 char|->70 char|->80 char|->90 char|>100 char";
+  std::cout<<"String size = 101"<<'\n';
+  testLimit(c2);
 }
