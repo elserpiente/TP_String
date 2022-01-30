@@ -40,9 +40,15 @@ String& operator=(const String& other){
 }
 
 String& operator=(char other){
-  //Emma
+  this->_len=1;
+
+  this->_str=new char[this->_len]();
+  this->_str[0]=other;
+  this->_str[1]='\0';
+
+  this->_storage=0;
   return *this;
-}
+ }
 
 String& operator=(const char* other){
   delete(this->_str);
@@ -66,8 +72,41 @@ String& operator=(const char* other){
   return *this;
 }
 
+
 String& operator+(const char* other){
-  //Emma
+  int nbchar=0;
+  while(other[nbchar]!='\0'){
+    nbchar++;
+  }
+  std::cout << "nbchar=" << nbchar << std::endl;
+  std::cout << "tot size=" << this->size()+nbchar << std::endl;
+  if (this->size()+nbchar+1 <100){
+    String save(this->c_str());
+    std::cout << "save=" << save.c_str() << std::endl;
+    delete(this->_str);
+    this->_str=new char[this->size()+nbchar+1]();
+
+    int i=0;
+    while(save.c_str()[i]!='\0' && i<100){
+      this->_str[i]=save.c_str()[i];
+      i++;
+    }
+    std::cout << "new str=" << this->c_str() << std::endl;
+
+    int j=0;
+    while(other[j]!='\0' && i<100){
+      this->_str[i]=other[j];
+      i++;
+      j++;
+    }
+    std::cout << "new str=" << this->c_str() << std::endl;
+    this->_str[i]='\0';
+    this->_len=this->size()+nbchar;
+    this->_storage=0;
+    std::cout << "new str=" << this->c_str() << std::endl;
+  }else{
+    throw std::invalid_argument( "max string size allowed is 99 char, please reduce the added string's size" );
+  }
   return *this;
 }
 
